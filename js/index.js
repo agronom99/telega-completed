@@ -9,15 +9,18 @@ async function sendEmailTelegram(event) {
     event.preventDefault();
 
     const form = event.target;
+
+    // console.log(form);
+
     const formBtn = document.querySelector('.form__submit-button button')
     const formSendResult = document.querySelector('.form__send-result')
     formSendResult.textContent = '';
 
 
-    const { name, email, phone, pass } = Object.fromEntries(new FormData(form).entries());
+    const {  name, email, phone, pass } = Object.fromEntries(new FormData(form).entries());
     
-    const text = `Заявка з сайту_____________________:\n Прохання від: ${name}!\nEmail: ${email}\nPhone: ${phone}\nПаспортні данні: ${pass}`;
-
+    const text = `Заявка з сайту "Форма на телеграм":\n Прохання від: ${name}!\nEmail: ${email}\nPhone: ${phone}\nПаспортні данні: ${pass}`;
+console.log(text);
 
     try {
         formBtn.textContent = 'Loading...';
